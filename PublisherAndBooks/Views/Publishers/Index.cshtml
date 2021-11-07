@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PublisherAndBooks.Models.Publisher>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col">
+        <div class="display-5">List of Publisher</div>
+        <div class="d-flex justify-content-end mb-1">
+            <a href="@Url.Action("Create", "Publishers")" class="btn btn-success rounded-circle"><i class="fa fa-plus"></i></a>
+        </div>
+        <table class="table table-bordered table-striped table-sm">
+            <thead class="bg-success text-white">
+                <tr>
+                    <th>@Html.DisplayNameFor(x => x.PublisherName)</th>
+                    <th>@Html.DisplayNameFor(x => x.Establish)</th>
+                    <th>Edit/Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var ph in Model)
+                {
+                <tr>
+                    <td>@Html.DisplayFor(x => ph.PublisherName) </td>
+                    <td>@Html.DisplayFor(x => ph.Establish) </td>
+                    
+                    <td style="width:140px;" class="text-center">
+
+                        <a title="Edit this item" href="@Url.Action("Edit", "Publishers", new { id=ph.PublisherId})" class="btn btn-primary btn-sm rounded-circle"><i class="fa fa-pencil"></i></a>
+                        <a title="Delete this item" href="@Url.Action("Delete", "Publishers", new { id=ph.PublisherId})" class="btn btn-danger btn-sm rounded-circle"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section styles {
+
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+}

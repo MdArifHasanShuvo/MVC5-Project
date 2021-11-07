@@ -1,0 +1,59 @@
+﻿@model PublisherAndBooks.Models.Book
+@{
+    ViewBag.Title = "Delete";
+}
+
+@using (Html.BeginForm("Delete", "Books", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(x => x.BookId)
+    <div class="row">
+        <div class="col-12">
+            <h3 class="text-danger">Are you sure Delete<span class="display-6 text-info"> @Html.DisplayFor(x => x.Title) </span> </h3>
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        @Html.LabelFor(x => x.Title, new { @class = "col-form-label col-form-label-sm col-2 text-end" })
+        <div class="col-5">
+            @Html.DisplayFor(x => x.Title)
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        @Html.LabelFor(x => x.Genre, new { @class = "col-form-label col-form-label-sm col-2 text-end" })
+        <div class="col-5">
+            @Html.DisplayFor(x => x.Genre)
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        @Html.LabelFor(x => x.Rating, new { @class = "col-form-label col-form-label-sm col-2 text-end" })
+        <div class="col-5">
+            @Html.DisplayFor(x => x.Rating)
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        @Html.LabelFor(x => x.Publish, new { @class = "col-form-label col-form-label-sm col-2 text-end" })
+        <div class="col-5">
+            @Html.DisplayFor(x => x.Publish)
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        @Html.LabelFor(x => x.Publisher.PublisherName, new { @class = "col-form-label col-form-label-sm col-2 text-end" })
+        <div class="col-5">
+            @Html.DisplayFor(x => x.Publisher.PublisherName)
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        @Html.LabelFor(x => x.Picture, new { @class = "col-form-label col-form-label-sm col-2 text-end" })
+        <div class="col-5">
+            <img src="~/Pictures/@Model.Picture" width="60" class="img-thumbnail rounded-2" />
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <div class="col-5 offset-2">
+            <button type="submit" class="btn btn-danger text-end">Delete</button>
+        </div>
+    </div>
+    <div class="row">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}
+

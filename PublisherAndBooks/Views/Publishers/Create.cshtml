@@ -1,0 +1,49 @@
+﻿@model PublisherAndBooks.Models.Publisher
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm())
+{
+    <h4>Create new Publisher</h4>
+    <div class="form-group row mb-1">
+        @Html.LabelFor(x => x.PublisherName, new { @class = "col-form-label col-form-label-sm col-2 text-end" })
+        <div class="col-5">
+            @Html.TextBoxFor(x => x.PublisherName, new { @class = "form-control form-control-sm" })
+            @Html.ValidationMessageFor(x => x.PublisherName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        @Html.LabelFor(x => x.Establish, new { @class = "col-form-label col-form-label-sm col-2 text-end" })
+        <div class="col-5">
+            @Html.TextBoxFor(x => x.Establish, new { @class = "form-control form-control-sm" })
+            @Html.ValidationMessageFor(x => x.Establish, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group row mb-1">
+        <div class="col-5 offset-2">
+            <button type="reset" class="btn btn-danger text-end">Reset</button>
+            <button type="submit" class="btn btn-success text-end">Save</button>
+        </div>
+    </div>
+    <div class="row">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}
+
+@section styles{
+
+    <link href="~/Content/bootstrap-datepicker.standalone.css" rel="stylesheet" />
+}
+@section scripts{
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/jquery.daterangepicker/daterangepicker.jQuery.js"></script>
+    <script>
+        $("#Establish").datepicker({
+            format: 'yyyy-mm-dd'
+        })
+    </script>
+}

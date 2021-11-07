@@ -1,0 +1,18 @@
+﻿<nav class="navbar navbar-dark bg-success navbar-expand-md fixed-top border-bottom">
+    <div class="container-fluid">
+        <span class="navbar-brand">Books and Publishers </span>
+        <div class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    @Html.ActionLink("Home", "Index", "Home", new { }, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Books", "Index", "Books", new { }, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Publishers", "Index", "Publishers", new { }, new { @class = "nav-link" })
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
